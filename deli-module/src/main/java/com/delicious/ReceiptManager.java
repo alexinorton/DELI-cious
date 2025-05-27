@@ -1,4 +1,5 @@
 package com.delicious;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -6,36 +7,41 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptManager {
 
-    public void saveReceipt(Order order) {
-        String folderName = "receipts";
-        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-        String fileName = folderName + "/" + timestamp + ".txt";
+    // Handles displaying the receipt and saving it
+    public void printReceipt(Order order) {
+        // Create formatted receipt text
+        StringBuilder receipt = new StringBuilder();
 
+        // Add timestamp
+        LocalDateTime now = LocalDateTime.now();
+        String formattedTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        receipt.append("----- RECEIPT -----\n");
+        receipt.append("Time: ").append(formattedTime).append("\n\n");
+
+        // Add items
+        for (PricedItem item : order.getItems()) {
+            receipt.append(item.getName()).append(": $").append(String.format("%.2f", item.getPrice())).append("\n");
+        }
+
+        // Add total
+        receipt.append("\nTotal: $").append(String.format("%.2f", order.calculateTotal())).append("\n");
+        receipt.append("-------------------\n");
+
+        // Display on screen
+        System.out.println(receipt);
+
+        // Save to file
+        saveToFile(receipt.toString());
+    }
+
+    private void saveToFile(String receiptText) {
         try {
-            FileWriter writer = new FileWriter(fileName);
-            writer.write("=== DELI-cious Receipt ===\n\n");
-
-            writer.write("Sandwiches:\n");
-            for (Sandwich sandwich : order.getSandwiches()) {
-                writer.write("- " + sandwich.getPrice() + "\n");
-            }
-
-            writer.write("\nDrinks:\n");
-            for (Drink drink : order.getDrinks()) {
-                writer.write("- " + drink.getPrice() + "\n");
-            }
-
-            writer.write("\nChips:\n");
-            for (Chips chip : order.getChips()) {
-                writer.write("- " + chip.getPrice() + "\n");
-            }
-
-            writer.write("\nTotal: $" + order.getTotalPrice());
-
+            FileWriter writer = new FileWriter("receipt.txt", true); // true = append mode
+            writer.write(receiptText + "\n");
             writer.close();
-            System.out.println("Receipt saved as: " + fileName);
+            System.out.println("Receipt saved to receipt.txt\n");
         } catch (IOException e) {
-            System.out.println("Error saving receipt: " + e.getMessage());
+            System.out.println("Failed to save receipt: " + e.getMessage());
         }
     }
 }

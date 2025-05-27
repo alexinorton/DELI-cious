@@ -4,56 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<Sandwich> sandwiches;
-    private List<Drink> drinks;
-    private List<Chips> chips;
+    private List<PricedItem> items;
 
     public Order() {
-        sandwiches = new ArrayList<>();
-        drinks = new ArrayList<>();
-        chips = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
-    public void addSandwich(Sandwich sandwich) {
-        sandwiches.add(sandwich);
+    // Add an item to the order
+    public void addItem(PricedItem item) {
+        items.add(item);
     }
 
-    public void addDrink(Drink drink) {
-        drinks.add(drink);
+    // Get the list of items
+    public List<PricedItem> getItems() {
+        return items;
     }
 
-    public void addChips(Chips chip) {
-        chips.add(chip);
-    }
-
-    public double getTotalPrice() {
-        double total = 0.0;
-
-        for (Sandwich sandwich : sandwiches) {
-            total += sandwich.getPrice();
+    // Calculate the total price
+    public double calculateTotal() {
+        double total = 0;
+        for (PricedItem item : items) {
+            total += item.getPrice();
         }
-
-        for (Drink drink : drinks) {
-            total += drink.getPrice();
-        }
-
-        for (Chips chip : chips) {
-            total += chip.getPrice();
-        }
-
         return total;
-    }
-
-    // Getters for ReceiptManager
-    public List<Sandwich> getSandwiches() {
-        return sandwiches;
-    }
-
-    public List<Drink> getDrinks() {
-        return drinks;
-    }
-
-    public List<Chips> getChips() {
-        return chips;
     }
 }

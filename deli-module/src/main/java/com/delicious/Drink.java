@@ -1,25 +1,19 @@
 package com.delicious;
 
-public class Drink implements PricedItem {
-    private String size;
-    private String flavor;
+public class Chips implements PricedItem {
+    private String type;
 
-    public Drink(String size, String flavor) {
-        this.size = size;
-        this.flavor = flavor;
+    public Chips(String type) {
+        this.type = type;
     }
 
     @Override
     public double getPrice() {
-        switch (size) {
-            case "Small":
-                return 2.00;
-            case "Medium":
-                return 2.50;
-            case "Large":
-                return 3.00;
-            default:
-                return 0.00;
-        }
+        return 1.25;
+    }
+
+    @Override
+    public String getName() {
+        return type + " chips";
     }
 }
