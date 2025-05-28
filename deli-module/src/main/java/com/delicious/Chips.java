@@ -9,6 +9,11 @@ public class Chips implements PricedItem {
 
     @Override
     public double getPrice() {
-        return 1.50;
+        return 1.25;
+    }
+
+    @Override
+    public String getName() {
+        return type + " chips";
     }
 }
