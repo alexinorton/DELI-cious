@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="deli-module" />
+        <module name="org.junit.jupiter:junit-jupiter:5.9.2" />
       </profile>
     </annotationProcessing>
   </component>

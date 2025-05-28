@@ -1,36 +1,24 @@
 package com.delicious;
 
-public class Drink implements PricedItem {
-    private String size;
-    private String flavor;
-    private double price;
+public class Drink {
+    private String type;  // Coffee, Apple Juice, Water, Soda
+    private String size;  // Small, Medium, Large
 
-    public Drink(String size, String flavor) {
+    public Drink(String type, String size) {
+        this.type = type;
         this.size = size;
-        this.flavor = flavor;
-        this.price = calculatePrice(size);
     }
 
-    private double calculatePrice(String size) {
-        switch (size.toLowerCase()) {
-            case "small":
-                return 1.50;
-            case "medium":
-                return 2.00;
-            case "large":
-                return 2.50;
-            default:
-                return 2.00; // Default price
-        }
-    }
-
-    @Override
-    public String getName() {
-        return size + " " + flavor + " Drink";
-    }
-
-    @Override
     public double getPrice() {
-        return price;
+        return switch (size.toLowerCase()) {
+            case "small" -> 2.00;
+            case "medium" -> 2.50;
+            case "large" -> 3.00;
+            default -> 0.0;
+        };
+    }
+
+    public String toString() {
+        return size + " " + type;
     }
 }
