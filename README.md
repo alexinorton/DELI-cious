@@ -30,7 +30,8 @@ This project was created as part of my final capstone at Year Up. It allows cust
 ### 🖼️ Screenshots
 
 Main Menu  
-![Main Menu](screenshots/main-menu.png)
+![Main screen](https://github.com/user-attachments/assets/09dc7deb-d753-4faf-b37c-d4d67f0b8bed)
+
 
 Sandwich Builder  
 ![Sandwich Screen](screenshots/sandwich-builder.png)
