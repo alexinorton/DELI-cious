@@ -34,10 +34,12 @@ Main Menu
 
 
 Sandwich Builder  
-![Sandwich Screen](screenshots/sandwich-builder.png)
+![Sandwich screen](https://github.com/user-attachments/assets/75ac1955-9a47-41d3-a6a2-8676f9b4bcfd)
+
 
 Example Receipt  
-![Receipt Output](screenshots/receipt-example.png)
+![Receipt output](https://github.com/user-attachments/assets/2a2c82e5-4efe-4d12-8696-87df019ff71d)
+
 
 ---
 
