@@ -1,10 +1,10 @@
-# DELI-cious Sandwich Shop
+DELI-cious Sandwich Shop
 
 A Java-based point-of-sale console application for a custom sandwich shop.
 
 This project was created as part of my final capstone at Year Up. It allows customers to build sandwiches with full customization, add drinks and chips, and generates receipts.
 
-## 🧾 Features
+ Features
 
 - Building sandwiches:
   - Size: 4", 8", 12"
