@@ -44,4 +44,4 @@ Example Receipt
 ---
 
 💻 Interesting Code Snippet
-Unit test
+I personally found the OVERRIDE function is very
